@@ -38,11 +38,6 @@
   animation: notificationAnimation 2s ease-in-out infinite;
 }
 
-.user-component__time {
-  display: block;
-  margin-bottom: 10px;
-}
-
 @keyframes appearBtnAnimation {
   to {
     transform: none;
