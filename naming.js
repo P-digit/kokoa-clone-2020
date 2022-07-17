@@ -1,5 +1,4 @@
-const USER_NAME = document.querySelector(".user-component__title");
-const user = "currentUser";
+const user = "username";
 const loginForm = document.querySelector("#login-form");
 
 var db = [];
@@ -7,33 +6,23 @@ var db = [];
 function handleName() {
   const USER_LS = localStorage.getItem(user);
   if (USER_LS !== null) {
-    USER_NAME.innerText = JSON.stringify(USER_LS);
+    window.location.href = "friends.html";
   } else {
     callDataPage();
   }
 }
 
 function callDataPage() {
-  if (window.location === "index.html") {
-    return;
-  } else {
-    location.href = "index.html";
-  }
+  loginForm.addEventListener("submit", saveUserData);
 }
 
 function saveUserData(event) {
-  const email = loginForm.getElementsByName("username")[0];
-  const password = loginForm.getElementsByName("password")[0];
-  const nickname = loginForm.getElementsByName("nickname")[0];
+  const nickname = document.querySelector(".js-name");
   const data = {
-    email: email.value,
-    password: password.value,
     nickname: nickname.value,
   };
-  event.preventDefault();
   db.push(data);
-  localStorage.setItem(user, data.nickname);
-  console.log(db);
+  localStorage.setItem(user, nickname.value);
 }
 
 function init() {
@@ -41,5 +30,3 @@ function init() {
 }
 
 init();
-
-loginForm.addEventListener("submit", saveUserData);
