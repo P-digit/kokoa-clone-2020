@@ -30,13 +30,19 @@
     </header>
     <form action="friends.html" method="get" id="login-form">
       <input
-        name="username"
+        name="email"
         required
         type="text"
         placeholder="Email or phone number"
       />
       <input name="password" required type="password" placeholder="Password" />
-      <input name="nickname" required type="text" placeholder="Nickname" />
+      <input
+        class="js-name"
+        name="nickname"
+        required
+        type="text"
+        placeholder="Nickname"
+      />
       <input type="submit" value="Log In" />
       <a href="#">Find KoKoa Account or Password</a>
     </form>
